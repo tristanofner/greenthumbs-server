@@ -25,7 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $myPlants = Plant::where('userID','=',Auth::user()->id)->get();
+        $myPlants = Plant::getPlants()
         return view('home');
+    }
+
+    public function create(array $data)
+    {
+        Plant::create([
+            'plantID' => $data->plantID,
+            'speciesID' => $data->speciesID,
+            'userID' => Auth::user()->id,
+            'plantName' => $data->name]);
+        return redirect('home')
     }
 }
