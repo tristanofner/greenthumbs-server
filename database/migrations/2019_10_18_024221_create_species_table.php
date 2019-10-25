@@ -23,6 +23,9 @@ class CreateSpeciesTable extends Migration
             $table->string('soilType');
             $table->timestamps();
         });
+
+        DB::table('species')->insert([
+            ['speciesName' => 'Lavender', 'hardinessZone' => 11, 'heatZone' => s]])
     }
 
     /**
