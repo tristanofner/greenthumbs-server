@@ -9,13 +9,9 @@ class Plant extends Model
 {
         protected $table = 'plant';
 
-        public function getPlants()
+        public static function getPlants()
         {
-        	return $this->where('userID', '=', Auth::user()->id)->get();
+        	return Plant::where('userID', '=', Auth::user()->id)->get();
         }
 
-        public function createPlant()
-        {
-        	
-        }
 }

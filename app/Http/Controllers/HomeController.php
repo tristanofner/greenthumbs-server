@@ -25,17 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $myPlants = Plant::getPlants()
+        $myPlants = Plant::getPlants();
         return view('home');
     }
 
-    public function create(array $data)
+    public function create(Request $request)
     {
+        $data = $request->all();
         Plant::create([
-            'plantID' => $data->plantID,
             'speciesID' => $data->speciesID,
             'userID' => Auth::user()->id,
             'plantName' => $data->name]);
-        return redirect('home')
+        return redirect('home');
     }
 }
